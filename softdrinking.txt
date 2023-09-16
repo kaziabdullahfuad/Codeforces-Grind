@@ -1,0 +1,15 @@
+//Objective to make toast.
+n=3[friends]
+k=4[bottles]
+l=5[millimitres of drink]
+c=10[limes]
+d=8[lime slices]
+p=100[grams of salt]
+nl=3[millilitres to make a single toast]
+np=1[grams of salt to make a single toast]
+
+*Find k*l/nl
+*Find c*d
+*Find p/np
+And then find the smallest among this three and then divide by the number of friends(n)
+to ensure equal distrubition.

@@ -1,0 +1,11 @@
+inputf and outputf files tai always 2 ta file extra.
+2 ta problem korle compile korar por toatal files hoi 2*2=4 tar upor inp and out ar jonno toatl=4+2=6
+so total 50 problems korle 50*2=100 files plus 2 of input and output 100+2=102 total files thakbe.
+
+Actually 103 thakbe since ai text file add hoise.
+
+No of problems solved=(Total Files-3)/2
+
+Ex Now:
+
+Total files=7, So problem solved=(7-3)/2= 4/2=2.
