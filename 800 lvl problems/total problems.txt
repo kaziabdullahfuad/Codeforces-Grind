@@ -4,8 +4,20 @@ so total 50 problems korle 50*2=100 files plus 2 of input and output 100+2=102 t
 
 Actually 103 thakbe since ai text file add hoise.
 
+Aro 4 ta files include hoise.
+
+10/2=5.
+
+27 total problem hole. Unnecessary files hocche 2cpp so (2*2) + input->1+output->1+tester->1=
+7
+
 No of problems solved=(Total Files-3)/2
 
 Ex Now:
 
 Total files=7, So problem solved=(7-3)/2= 4/2=2.
+
+**NEW**
+107 problem korle 50 ta problem hobe.
+
+Ex: 107 problems korle-> 107-7= All total files with cpp +exe then 100/2=50 problems done.
