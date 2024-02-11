@@ -15,10 +15,15 @@ int main()
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int x=(0^3);
+    // int x=(0^3);
+    // cout<<x<<endl;
+    // cout<<(x^5)<<endl;
+    // cout<<(1^3)<<endl;
+
+    int x;
+    cin>>x;
+
     cout<<x<<endl;
-    cout<<(x^5)<<endl;
-    cout<<(1^3)<<endl;
 
     return 0;
 }
