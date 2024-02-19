@@ -21,6 +21,16 @@ void printVector(vector<t1> v1){
 	}
 	cout<<endl;
 }
+ll facto(ll val){
+
+	ll result=1;
+	for(ll i=2;i<=val;i++){
+
+		result*=i;
+	}
+
+	return result;
+}
 int main()
 {
 	ios_base::sync_with_stdio(false);
@@ -33,28 +43,62 @@ int main()
 
     	ll n;
     	cin>>n;
-    	vector<ll> v1(n); 
+    	vector<ll> v1(n);
+    	map<ll,ll> m1;
 
-    	// 7
-		//1 1 1 1 1 1 1
-    	
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
+    		m1[v1[i]]++;
     	}
-    	int count=0;
-    	for(int i=0;i<n-2;i++){
+    	
+    	sort(all(v1),greater<ll>());
 
-    		for(int j=i+1;j<n-1;j++){
+    	//printVector(v1);
+    	ll holder=n;
+    	ll sum=0;
+    	ll calculate=0;
 
-    			for(int k=j+1;k<n;k++){
+    	//cout<<m1[v1[0]]*(m1[v1[0]]-1)<<endl;
 
-    				cout<<i<<" "<<j<<" "<<k<<endl;
-    				count++;
-    			}
+    	for(int i=0;i<n;i++){
+    		//debug(i);
+    		if(m1[v1[i]]>=3){
+
+    			// 3 ar combination
+    			calculate=(m1[v1[i]]*(m1[v1[i]]-1)*(m1[v1[i]]-2))/6;
+    			//cout<<calculate<<endl;
+    			sum+=calculate;
+
+    			// 2 ar combination
+    			ll remain=holder-m1[v1[i]];
+    			//debug(remain)
+    			calculate=((m1[v1[i]]*(m1[v1[i]]-1))/2)*remain;
+    			//cout<<calculate<<endl;
+    			//debug(calculate)
+    			sum+=calculate;
+    			m1[v1[i]]=0;
+
+
     		}
-    	}
-    	debug(count);
+    		else if(m1[v1[i]]==2){
+    			
+    			// 2 ar combination
+    			ll remain=holder-m1[v1[i]];
+    			//debug(remain);
+    			calculate=((m1[v1[i]]*(m1[v1[i]]-1))/2);
 
+    			//cout<<calculate<<endl;
+    			//debug(calculate);
+    			calculate*=remain;
+    			sum+=calculate;
+    			m1[v1[i]]=0;
+    		}
+    		holder--;
+    	}
+
+    	cout<<sum<<endl;
+
+    	
 
     	t--;
     }
