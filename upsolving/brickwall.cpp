@@ -26,28 +26,26 @@ int main()
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    
-    	int a, b;
-	  cin >> a >> b;
-	  int c = 0;
-	  int ans = 0;
-	  while (a) {
+    int t;
+    cin>>t;
 
-	    ans += a;
-	    //debug(ans);
-	    c += a;
-	    //debug(c);
-	    a = c/b;
-	    //debug(a);
-	    c -= b*(c/b);
-	    //c=c%b;
-	    //debug(c);
-	    
-	    
-	  }
-	  cout << ans << '\n';
-    	
-    
+    while(t){
+
+    	ll n,m;
+    	cin>>n>>m;
+
+    	// n row and m coulumn
+
+    	if(m%2==0){
+
+    		cout<<(m/2)*n<<endl;
+    	}
+    	else{
+    		cout<<(m/2)*n<<endl;
+    	}
+
+    	t--;
+    }
 
     return 0;
 }

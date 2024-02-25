@@ -26,28 +26,7 @@ int main()
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    
-    	int a, b;
-	  cin >> a >> b;
-	  int c = 0;
-	  int ans = 0;
-	  while (a) {
-
-	    ans += a;
-	    //debug(ans);
-	    c += a;
-	    //debug(c);
-	    a = c/b;
-	    //debug(a);
-	    c -= b*(c/b);
-	    //c=c%b;
-	    //debug(c);
-	    
-	    
-	  }
-	  cout << ans << '\n';
-    	
-    
+    cout<<"Bismillah";
 
     return 0;
 }

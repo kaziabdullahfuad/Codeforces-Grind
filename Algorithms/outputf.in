@@ -1,6 +1,17 @@
-3 2 4 5 1 1 5 3 
-3 5 9 14 15 16 21 24 
-11
-2
-24
-4
+left 0
+mid 1
+right 1
+inv_count 0
+left 0
+mid 2
+right 2
+inv_count 1
+left 3
+mid 4
+right 4
+inv_count 0
+left 0
+mid 3
+right 4
+inv_count 4
+ Number of inversions are 5

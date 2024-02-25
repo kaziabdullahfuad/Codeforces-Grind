@@ -26,28 +26,37 @@ int main()
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    
-    	int a, b;
-	  cin >> a >> b;
-	  int c = 0;
-	  int ans = 0;
-	  while (a) {
+    int t;
+    cin>>t;
 
-	    ans += a;
-	    //debug(ans);
-	    c += a;
-	    //debug(c);
-	    a = c/b;
-	    //debug(a);
-	    c -= b*(c/b);
-	    //c=c%b;
-	    //debug(c);
-	    
-	    
-	  }
-	  cout << ans << '\n';
-    	
-    
+    while(t){
+
+    	string s;
+    	cin>>s;
+
+    	int a_val=0;
+    	int b_val=0;
+
+    	for(int i=0;i<s.size();i++){
+
+    		if(s[i]=='A'){
+    			a_val++;
+    		}
+    		else{
+    			b_val++;
+    		}
+    	}
+
+    	if(a_val>=b_val){
+
+    		cout<<"A"<<endl;
+    	}
+    	else{
+    		cout<<"B"<<endl;
+    	}
+
+    	t--;
+    }
 
     return 0;
 }

@@ -26,28 +26,27 @@ int main()
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    
-    	int a, b;
-	  cin >> a >> b;
-	  int c = 0;
-	  int ans = 0;
-	  while (a) {
+    int t;
+    cin>>t;
 
-	    ans += a;
-	    //debug(ans);
-	    c += a;
-	    //debug(c);
-	    a = c/b;
-	    //debug(a);
-	    c -= b*(c/b);
-	    //c=c%b;
-	    //debug(c);
-	    
-	    
-	  }
-	  cout << ans << '\n';
+    while(t){
+
+    	ll n;
+    	cin>>n;
+    	vector<ll> v1(n);
+    	vector<ll> v2(n);
+    	for(int i=0;i<n;i++){
+    		cin>>v1[i];
+    	}
+
+    	for(int i=0;i<n;i++){
+    		cin>>v2[i];
+    	}
     	
-    
+    	
+
+    	t--;
+    }
 
     return 0;
 }
