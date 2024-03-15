@@ -26,42 +26,15 @@ int main()
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t;
-    cin>>t;
+    
+    int n;
+    cin>>n;
 
-    while(t){
-
-    	ll n;
-    	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
-    	
-
-    	t--;
+    if(n>40){
+    	cout<<"YES"<<endl;
+    }
+    else{
+    	cout<<"NO"<<endl;
     }
 
     return 0;

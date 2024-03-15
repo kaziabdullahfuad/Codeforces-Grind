@@ -1,5 +1,4 @@
 #include<iostream>
-#include<cstring>
 #include<cmath>
 #include<algorithm>
 #include<string>
@@ -32,83 +31,66 @@ int main()
 
     while(t){
 
-    	ll n,q;
-    	cin>>n>>q;
-
+    	ll n;
+    	cin>>n;
     	vector<ll> v1(n);
-
-    	vector<ll> prefix(n);
-
-    	vector<ll> count_one(n);
-
+    	int one_count=0;
+    	int two_count=0;
     	for(int i=0;i<n;i++){
-
     		cin>>v1[i];
-    		//cout<<v1[i]<<endl;
-
-    		prefix[i]=v1[i];
-
+    	}
+    	ll sum=0;
+    	ll mul=1;
+    	for(int i=0;i<n;i++){
+    		sum+=v1[i];
+    		mul*=v1[i];
     		if(v1[i]==1){
-    			count_one[i]=1;
+    			one_count++;
+    		}
+    		else{
+    			two_count++;
     		}
     	}
-
+    	// val
+    	//debug(sum) debug(mul)	
     	
-
-    	for(int i=1;i<n;i++){
-
-    		prefix[i]+=prefix[i-1];
-    		count_one[i]+=count_one[i-1];
+    	if(two_count==0){
+    		cout<<1<<endl;
     	}
+    	else{
 
-    	
-
-    	while(q){
-
-    		ll l,r;
-    		cin>>l>>r;
-
-    		l--;
-    		r--;
-
-    		if(l==r){
-
-    			cout<<"NO"<<endl;
+    		if(two_count%2==1){
+    			cout<<-1<<endl;
     		}
     		else{
 
-    			ll sum=prefix[r];
-    			ll countr=count_one[r];
+    			int count=0;
+    			int k;
+    			bool found=false;
+    			for(int i=0;i<n-1;i++){
 
-    			if(l>0){
-
-    				sum-=prefix[l-1];
-    				countr-=count_one[l-1];
+    				//debug(count)
+    				//debug(two_count)
+    				
+    				if(v1[i]==2){
+    					count++;
+    					two_count--;
+    				}
+    				if(count==two_count){
+    					found=true;
+    					k=i;
+    					break;
+    				}
     			}
 
-    			
-
-    			sum-=(2*countr);
-
-    			
-
-    			ll int rem = r - l + 1 - countr;
-
-    			
-    			if(sum>=rem){
-    				cout<<"YES"<<endl;
+    			if(found){
+    				cout<<k+1<<endl;
     			}
     			else{
-
-    				cout<<"NO"<<endl;
+    				cout<<-1<<endl;
     			}
-
     		}
-    		
-
-    		q--;
     	}
-
 
     	t--;
     }

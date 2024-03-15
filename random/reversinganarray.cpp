@@ -31,35 +31,26 @@ int main()
 
     while(t){
 
-    	ll n;
-    	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
+    	vector<int> v1={2,3,4,1,2,3}; // reverse should be 3,2,1,4,3,2
+    	//vector<int> v1={2,3,4,1,2}; // reverse should be 2,1,4,3,2
+    	int n=v1.size();
 
     	printVector(v1);
 
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
+    	int left=0;
+    	int right=n-1;
+
+    	while(left<right){
+
+    		int temp=v1[left];
+    		v1[left]=v1[right];
+    		v1[right]=temp;
+    		left++;
+    		right--;
     	}
-    	cout<<endl;
-    	
+
+    	printVector(v1);
+
 
     	t--;
     }

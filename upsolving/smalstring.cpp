@@ -31,35 +31,33 @@ int main()
 
     while(t){
 
-    	ll n;
+    	int n;
     	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
+
+    	int a,b,c;
+
+    	for(int i=1;i<=26;i++){
+
+    		for(int j=i;j<=26;j++){
+
+    			for(int k=1;k<=26;k++){
+
+    				if(i+j+k==n){
+    					a=i;
+    					b=j;
+    					c=k;
+    					goto label1;
+    				}
+    			}
+    		}
     	}
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
-    	
+    	label1:
+    	string ans="";
+    	ans=char(a+96);
+    	ans+=char(b+96);
+    	ans+=char(c+96);
+    	cout<<ans<<endl;
 
     	t--;
     }

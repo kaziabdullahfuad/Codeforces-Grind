@@ -34,32 +34,35 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	ll sum=0;
+    	ll no_ones=0;
+    	ll no_zeroes=0;
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
+    		sum+=v1[i];
+    		if(v1[i]==0){
+    			no_zeroes++;
+    		}
+    		else if(v1[i]==1){
+    			no_ones++;
+    		}
     	}
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
     	
+    	if(no_ones==0){
+    		cout<<0<<endl;
+    	}
+    	else if(no_zeroes==0){
+
+    		cout<<no_ones<<endl;
+    	}
+    	else{
+
+    		ll sub_ones=pow(2,no_zeroes);
+
+    		cout<<sub_ones*no_ones<<endl;
+    	}
+
 
     	t--;
     }

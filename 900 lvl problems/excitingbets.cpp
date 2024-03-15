@@ -31,35 +31,35 @@ int main()
 
     while(t){
 
-    	ll n;
-    	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
+    	ll a,b;
+    	cin>>a>>b;
+
+    	ll max_val=-1e18;
+    	ll min_val=1e18;
+
+    	if(a==b){
+    		cout<<0<<" "<<0<<endl;
+    	}
+    	else if((a==1 && b==2) || (a==2 && b==1)){
+    		cout<<1<<" "<<0<<endl;
+    	}
+    	else{
+
+    		min_val=min(a,b);
+    		max_val=max(a,b);
+
+    		// gcd
+    		ll gcd=max_val-min_val;
+
+    		//cout<<gcd<<endl;
+
+    		ll holder=max_val%gcd;
+
+    		ll steps=min(holder,gcd-holder);
+
+    		cout<<gcd<<" "<<steps<<endl;
     		
     	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
-    	
 
     	t--;
     }

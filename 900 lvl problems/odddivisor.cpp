@@ -33,33 +33,41 @@ int main()
 
     	ll n;
     	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
+
+    	if(n%2!=0){
+
+    		cout<<"YES"<<endl;
     	}
+    	else{
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
+    		ll hold=1;
+    		ll mul=2;
+    		bool found=false;
+
+    		while(hold<=n){
+
+    			if(hold==n){
+    				found=true;
+    				break;
+    			}
+    			if(hold>n){
+    				break;
+    			}
+
+    			//cout<<hold<<endl;
+    			hold*=mul;
+    			
+    		}
+    		//cout<<hold<<endl;
+
+    		if(found==true){
+    			cout<<"NO"<<endl;
+
+    		}
+    		else{
+    			cout<<"YES"<<endl;
+    		}
     	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
-    	
 
     	t--;
     }

@@ -34,32 +34,44 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
+    	}
+
+    	//printVector(v1);
+    	ll minval;
+    	for(int i=1;i<n-1;i++){
+
+    		minval=min(v1[i-1],v1[i+1]);
+
+    		minval=min(minval,v1[i]/2);
+
+    		v1[i-1]=v1[i-1]-minval;
+    		v1[i+1]=v1[i+1]-minval;
+    		v1[i]=v1[i]-(2*minval);
+    		//debug(v1[i-1]) debug(v1[i]) debug(v1[i+1])
     		
-    	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
     		
+
     	}
 
-    	for(int i=0;i<n;i++){
+    	bool found=true;
+    	//printVector(v1);
+    	for(auto x:v1){
 
-    		v3[v1[i]]=v2[i];
+    		if(x!=0){
+    			found=false;
+    		}
     	}
 
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
+    	if(found){
+    		cout<<"YES"<<endl;
     	}
-    	cout<<endl;
-    	
+    	else{
+    		cout<<"NO"<<endl;
+    	}
+
 
     	t--;
     }

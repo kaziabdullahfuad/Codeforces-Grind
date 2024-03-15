@@ -33,33 +33,41 @@ int main()
 
     	ll n;
     	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
+
+    	if(n==1){
+    		cout<<"NO"<<endl;
     	}
+    	else{
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
+    		string first="AB";
+    		string second="BA";
+
+    		string s="AA";
+
+    		if(n%2==0){
+    			string first="AA";
+    			string second="BB";
+    			int count=1;
+    			while(s.size()!=n){
+
+    				if(count%2==1){
+    					s+=second;
+    				}
+    				else{
+    					s+=first;
+    				}
+    				//cout<<s.size()<<endl;
+    				count++;
+    			}
+    			cout<<"YES"<<endl;
+    			cout<<s<<endl;
+    		}
+    		else{
+
+    			cout<<"NO"<<endl;
+    		}
+
     	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
-    	
 
     	t--;
     }

@@ -34,32 +34,56 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	ll sum=0;
+    	ll diff=0;
+    	
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
+    		sum+=v1[i];
     	}
 
+    	ll target=sum/n;
+    	ll holder=0;
+    	bool possible=true;
+    	//debug(sum)
+    	//debug(target)
     	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
+
+    		if(v1[i]>target){
+
+    			holder+=v1[i]-target;
+    			v1[i]=target;
+    			//debug(v1[i]);
+    			//debug(holder);
+    		}
+    		else if(v1[i]<target){
+
+    			diff=target-v1[i];
+
+    			if(diff>holder){
+    				//debug(diff)
+    				//debug(holder)
+    				possible=false;
+    				break;
+    			}
+    			else{
+    				//debug(v1[i])
+    				holder-=diff;
+    				v1[i]=target;
+    				//debug(holder);
+    			}
+
+    		}
     	}
 
-    	for(int i=0;i<n;i++){
+    	//printVector(v1);
 
-    		v3[v1[i]]=v2[i];
+    	if(possible){
+    		cout<<"YES"<<endl;
     	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
+    	else{
+    		cout<<"NO"<<endl;
     	}
-    	cout<<endl;
-    	
 
     	t--;
     }

@@ -26,43 +26,37 @@ int main()
 	ios_base::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int t;
-    cin>>t;
+    
+	ll n;
+	cin>>n;
+	ll a,b,sum;
+	ll c;
+	ll count=0;
+	for(ll i=1;i<=n;i++){
+		//int count=0;
+		for(ll j=i;j<=n;j++){
 
-    while(t){
+			//cout<<i<<" "<<j<<" ";
+			//count++;
+			a=i*i;
+			b=j*j;
+			sum=a+b;
+			c=sqrtl(sum);
+			if(c*c==sum && c<=n){
+				//cout<<"SHURU"<<endl;
+				count++;
+				// debug(i)
+				// debug(j)
+				// debug(sum)
+				// debug(c)
+			}
+		}
+		//cout<<endl;
+		//debug(count)
+	}
 
-    	ll n;
-    	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
-    	}
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
-    	
-
-    	t--;
-    }
+    cout<<count<<endl;
 
     return 0;
 }

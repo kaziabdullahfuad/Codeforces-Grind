@@ -31,35 +31,32 @@ int main()
 
     while(t){
 
-    	ll n;
-    	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
-    	}
+    	string s;
+    	cin>>s;
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
+    	int n=s.size();
+    	int zero_count=0;
+    	int one_count=0;
     	for(int i=0;i<n;i++){
 
-    		v3[v1[i]]=v2[i];
+    		if(s[i]=='0'){
+    			zero_count++;
+    		}
+    		else{
+    			one_count++;
+    		}
     	}
 
-    	sort(all(v1));
+    	int min_op=min(one_count,zero_count);
 
-    	printVector(v1);
+    	//cout<<min_op<<endl;
 
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
+    	if(min_op%2==0){
+    		cout<<"NET"<<endl;
     	}
-    	cout<<endl;
-    	
+    	else{
+    		cout<<"DA"<<endl;
+    	}
 
     	t--;
     }

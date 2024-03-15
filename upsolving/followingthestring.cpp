@@ -34,32 +34,35 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
     	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
     	
+    	//printVector(v1);
+
+    	vector<ll> holder(26);
+
+    	string ans="";
+    	
+    	char c;
+    	for(int i=0;i<n;i++){
+
+    		for(int j=0;j<26;j++){
+
+    			if(holder[j]==v1[i]){
+    				c=j+97;
+    				//cout<<j+96<<endl;
+    				//cout<<c<<endl;
+    				ans+=c;
+    				holder[j]++;
+    				break;
+    			}
+    		}
+    		//cout<<ans<<endl;
+    	}
+
+    	cout<<ans<<endl;
 
     	t--;
     }

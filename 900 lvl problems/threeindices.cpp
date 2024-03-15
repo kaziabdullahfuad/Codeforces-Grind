@@ -34,32 +34,50 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
     	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
     	
+    	bool found=false;
+
+    	vector<ll> holder;
+
+    	for(int i=1;i<n;i++){
+
+    		holder.push_back(v1[i]-v1[i-1]);
+    	}
+    	int first,second,third;
+
+    	// for(auto x:holder){
+    	// 	cout<<x<<" ";
+    	// }
+    	//cout<<endl;
+
+    	for(int i=0;i<holder.size()-1;i++){
+
+    		if(holder[i]>0){
+
+    			if(holder[i+1]<0){
+    				//cout<<i<<" "<<i+1<<endl;
+    				//cout<<holder[i]<<" "<<holder[i+1]<<endl;
+    				found=true;
+    				first=i;
+    				second=i+1;
+    				break;
+    			}
+    		}
+    	}
+
+    	if(found){
+
+    		cout<<"YES"<<endl;
+    		cout<<first+1<<" "<<second+1<<" "<<second+2<<endl;
+    	}
+    	else{
+    		cout<<"NO"<<endl;
+    	}
+
 
     	t--;
     }

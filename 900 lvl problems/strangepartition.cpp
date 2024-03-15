@@ -31,36 +31,43 @@ int main()
 
     while(t){
 
-    	ll n;
-    	cin>>n;
+    	ll n,x;
+    	cin>>n>>x;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+
+    	ll sum=0;
+    	ll ans=0;
     	for(int i=0;i<n;i++){
+
     		cin>>v1[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
     	}
 
     	for(int i=0;i<n;i++){
 
-    		v3[v1[i]]=v2[i];
+    		sum+=v1[i];
+
+    		if(v1[i]%x==0){
+
+    			ans+=v1[i]/x;
+    		}
+    		else{
+
+    			ans+=(v1[i]/x)+1;
+    		}
     	}
 
-    	sort(all(v1));
+    	ll min=0;
+    	if(sum%x==0){
 
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
+    		min=sum/x;
     	}
-    	cout<<endl;
+    	else{
+    		min=sum/x+1;
+    	}
+
+    	cout<<min<<" "<<ans<<endl;
+
     	
-
     	t--;
     }
 

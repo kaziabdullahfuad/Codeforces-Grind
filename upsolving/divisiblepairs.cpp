@@ -31,34 +31,36 @@ int main()
 
     while(t){
 
-    	ll n;
-    	cin>>n;
+    	ll n,x,y;
+    	cin>>n>>x>>y;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
     	}
+    	
+    	//printVector(v1);
+    	map<pair<ll,ll>,ll> m1;
 
+    	ll ans=0;
+    	ll temp1=0;
+    	ll temp2=0;
+    	ll first,second;
     	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
+
+    		temp1=v1[i]%x;
+    		temp2=v1[i]%y;
+
+    		first=(x-temp1)%x;
+    		second=temp2;
+
+    		ans+=m1[{first,second}];
+
+    		m1[{temp1,temp2}]++;
     	}
 
-    	for(int i=0;i<n;i++){
+    	cout<<ans<<endl;
 
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
     	
 
     	t--;

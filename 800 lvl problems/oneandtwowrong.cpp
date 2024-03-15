@@ -34,32 +34,47 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	ll sum=0;
+    	ll mul=1;
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
+    		sum+=v1[i];
+    		mul*=v1[i];
     	}
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
+    	cout<<sum<<" "<<mul<<endl;
 
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
+    	vector<ll> prefix(n+1);
+    	prefix[0]=1;
 
     	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
+
+    		prefix[i]=prefix[i-1]*v1[i-1];
+    	}
+    	bool found=false;
+    	ll k=0;
+    	for(int i=1;i<=n;i++){
+    		cout<<prefix[i]<<" ";
     	}
     	cout<<endl;
     	
+    	for(int i=1;i<=n-1;i++){
+
+    		debug(prefix[i]);
+    		cout<<mul/prefix[i]<<endl;
+    		if((mul/prefix[i])==prefix[i]){
+    			found=true;
+    			k=i;
+    			break;
+    		}
+    	}
+
+    	if(found){
+    		cout<<k<<endl;
+    	}
+    	else{
+    		cout<<-1<<endl;
+    	}
 
     	t--;
     }

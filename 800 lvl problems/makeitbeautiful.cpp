@@ -34,31 +34,29 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	set<ll> s1;
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
+    		s1.insert(v1[i]);
     	}
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
+    	if(s1.size()==1){
+    		cout<<"NO"<<endl;
     	}
+    	else{
 
-    	for(int i=0;i<n;i++){
+    		//printVector(v1);
+    		sort(all(v1),greater<ll>());
+    		//printVector(v1);
 
-    		v3[v1[i]]=v2[i];
+    		swap(v1[0],v1[n-1]);
+    		swap(v1[1],v1[n-1]);
+
+
+    		cout<<"YES"<<endl;
+    		printVector(v1);
+
     	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
     	
 
     	t--;

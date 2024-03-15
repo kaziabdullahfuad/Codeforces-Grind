@@ -31,35 +31,23 @@ int main()
 
     while(t){
 
-    	ll n;
-    	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
+    	ll n,k;
+    	cin>>n>>k;
+
+    	ll cnt=n+(n-2);
+
+    	//cout<<cnt<<endl;
+
+    	if(k<=(cnt*2)){
+
+    		//cout<<k/2<<endl;
+
+    		cout<<(k+1)/2<<endl;
     	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
+    	else{
+    		cnt+=k-(cnt*2);
+    		cout<<cnt<<endl;
     	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
-    	
 
     	t--;
     }

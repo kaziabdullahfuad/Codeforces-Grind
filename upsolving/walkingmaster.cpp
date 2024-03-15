@@ -31,35 +31,38 @@ int main()
 
     while(t){
 
-    	ll n;
-    	cin>>n;
-    	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
-    	for(int i=0;i<n;i++){
-    		cin>>v1[i];
-    		
+    	ll a,b,c,d;
+    	cin>>a>>b>>c>>d;
+
+    	// some edge cases
+
+    	// y boro hole oita komanor way nai so -1
+    	if(b>d){
+
+    		cout<<-1<<endl;
     	}
+    	else{
 
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
+    		int diff=abs(b-d);
+
+    		a+=diff;
+    		// debug(diff)
+    		// debug(a)
+    		// debug(c)
+    		// debug(d)
+    		if(a<c){
+    			//cout<<"A less than c"<<endl;
+    			cout<<-1<<endl;
+    		}
+    		else if(a==c){
+    			cout<<diff<<endl;
+    		}
+    		else if(a>c){
+
+    			diff+=abs(a-c);
+    			cout<<diff<<endl;
+    		}
     	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
-    	
 
     	t--;
     }

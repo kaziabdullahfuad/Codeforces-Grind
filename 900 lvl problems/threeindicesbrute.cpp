@@ -34,32 +34,46 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
     	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
     	
+    	int first,second,third;
+    	bool found=false;
+    	for(int i=0;i<n-1;i++){
+
+    		if(v1[i]<v1[i+1]){
+
+    			int k=i+1;
+    			int val=v1[k];
+
+    			for(int j=k+1;j<n;j++){
+
+    				if(v1[j]<val){
+    					found=true;
+    					first=i;
+    					second=k;
+    					third=j;
+    					break;
+    				}
+    			}
+    			if(found){
+    				break;
+    			}
+    		}
+    	}
+
+    	if(found){
+    		cout<<"YES"<<endl;
+
+    		cout<<first+1<<" "<<second+1<<" "<<third+1<<endl;
+    	}
+    	else{
+    		cout<<"NO"<<endl;
+    	}
+
+
 
     	t--;
     }

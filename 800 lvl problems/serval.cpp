@@ -34,32 +34,37 @@ int main()
     	ll n;
     	cin>>n;
     	vector<ll> v1(n);
-    	vector<ll> v2(n);
-    	vector<ll> v3(n+1);
+    	
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
-    		
     	}
-
-    	for(int i=0;i<n;i++){
-    		cin>>v2[i];
-    		
-    	}
-
-    	for(int i=0;i<n;i++){
-
-    		v3[v1[i]]=v2[i];
-    	}
-
-    	sort(all(v1));
-
-    	printVector(v1);
-
-    	for(int i=1;i<=n;i++){
-    		cout<<v3[i]<<" ";
-    	}
-    	cout<<endl;
     	
+    	//printVector(v1);
+    	ll min_val=1e18;
+    	ll holder;
+    	//cout<<__gcd(10,14)<<endl;
+    	for(int i=0;i<n-1;i++){
+
+    		for(int j=i+1;j<n;j++){
+
+    			holder=__gcd(v1[i],v1[j]);
+    			//cout<<holder<<" ";
+    			min_val=min(min_val,holder);
+    		}
+    		//cout<<endl;
+    	}
+
+    	//cout<<min_val<<endl;
+
+    	if(min_val<=2){
+
+    		cout<<"YES"<<endl;
+    	}
+    	else{
+
+    		cout<<"NO"<<endl;
+    	}
+
 
     	t--;
     }
