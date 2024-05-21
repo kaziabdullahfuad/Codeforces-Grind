@@ -53,23 +53,28 @@ int main()
     	if((no_ab==0 && no_ba==0) || (no_ab==no_ba)){
     		cout<<s<<endl;
     	}
-    	else if(no_ba==0){
+    	else if(no_ab>no_ba){
 
-    		// ab reo zero banao
-    		for(int i=0;i<s.size()-1;i++){
+    		// ektai remove korte hobe
+    		if(s[0]=='a' && s[1]=='b'){
 
-	    		//cout<<s[i]<<" "<<s[i+1]<<endl;
-	    		if(s[i]=='a' && s[i+1]=='b'){
-	    			
-	    			s[i]='b';
-	    		}
-	    		
+    			s[0]='b';
     		}
-    	}
-    	else if(no_ab==0){
+    		else{
 
-    		//ba re zero banao
-    		
+    			s[s.size()-1]='a';
+    		}
+    		cout<<s<<endl;
+    	}
+    	else if(no_ba>no_ab){
+
+    		if(s[0]=='b' && s[1]=='a'){
+    			s[0]='a';
+    		}
+    		else{
+    			s[s.size()-1]='b';
+    		}
+    		cout<<s<<endl;
     	}
 
     	t--;

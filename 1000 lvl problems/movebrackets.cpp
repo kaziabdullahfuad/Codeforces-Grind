@@ -31,6 +31,31 @@ int main()
 
     while(t){
 
+    	ll n;
+    	cin>>n;
+    	string s;
+    	cin>>s;
+
+    	ll left=0,right=0;
+    	ll needed=0;
+    	for(int i=0;i<n;i++){
+
+    		if(s[i]=='('){
+    			left++;
+    		}
+    		else if(s[i]==')'){
+    			//'()'
+
+    			if(left==0){
+    				needed++;
+    			}
+    			else{
+    				left--;
+
+    			}
+    		}
+    	}
+    	cout<<needed<<endl;
 
     	t--;
     }
