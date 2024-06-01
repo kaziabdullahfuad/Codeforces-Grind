@@ -84,6 +84,13 @@ int main()
 
    cout<<check(4,v1,8)<<endl;
 
+   string s="NEVAS";
+   cout<<s<<endl;
+   int n=s.size();
+   for(int i=0;i<n;i++){
+        cout<<s[i];
+   }
+
 
 
     return 0;

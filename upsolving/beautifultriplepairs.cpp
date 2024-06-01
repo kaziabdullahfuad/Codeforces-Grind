@@ -38,39 +38,53 @@ int main()
     	for(int i=0;i<n;i++){
     		cin>>v1[i];
     	}
-    	
-    	// 8-3+1=6.
-    	/* 1 2 3 2 2 3 4 2
-		1,2,3 
-		2,3,2 
-		3,2,2	
-		2,2,3
-		2,3,4
-		3,4,2
-		*/
-    	map<pair<ll,ll>,vector<ll>> m1;
-    	ll x,y,z;
-		x=v1[0],y=v1[1],z=v1[2];
-		//x=1,y=1,z=2;
-		cout<<x<<" "<<y<<" "<<z<<endl;
-		if(x==y){
-			m1[make_pair(x,y)].push_back(z);
-		}
-		// for(auto x:m1){
-		// 	cout<<x.first.first<<" "<<x.first.second;
-		// 	cout<<endl;
-		// 	for(int i=0;i<x.second.size();i++){
-		// 		cout<<x.second[i]<<endl;
-		// 	}
-		// }
+    	ll ans=0;
+    	for(int i=0;i<3;i++){
 
-		for(int i=3;i<n;i++){
-			x=y,y=z;
-			z=v1[i];
-			cout<<x<<" "<<y<<" "<<z<<endl;
+    		map<pair<ll,ll>,vector<ll>> m1;
 
-			
-		}
+    		for(int j=0;j<n-2;j++){
+
+    			// x1 and x2. v1[j] and v1[j+1]
+    			if(i==0){
+    				m1[make_pair(v1[j],v1[j+1])].push_back(v1[j+2]);
+    			}
+    			else if(i==1){
+    				// x1 and x3 combo. v1[j] and v1[j+2]
+    				m1[make_pair(v1[j],v1[j+2])].push_back(v1[j+1]);
+    			}
+    			else if(i==2){
+    				// x2 and x3 combo. v1[j+1] and v1[j+2]
+    				m1[make_pair(v1[j+1],v1[j+2])].push_back(v1[j]);
+    			}
+    		}
+
+    		//debug(i)
+
+    		for(auto x:m1){
+
+    			// cout<<"["<<x.first.first<<" "<<x.first.second<<"]->";
+    			map<ll,ll> temp;
+    			ll len=x.second.size();
+
+    			for(auto y:x.second){
+    				//cout<<y<<" ";
+    				temp[y]++;
+    			}
+
+    			for(auto z:temp){
+
+    				ans+=(len-z.second)*(z.second);
+    				len-=z.second;
+    			}
+    			//cout<<endl;
+
+    		}
+    		//cout<<ans<<endl;
+    	}
+
+    	cout<<ans<<endl;
+
 
     	t--;
     }
