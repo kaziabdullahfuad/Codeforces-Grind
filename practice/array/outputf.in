@@ -1,0 +1,10 @@
+2 3 4 5 
+P address:0x61fdf8
+P pointing to:0x781710
+2 3 4 5 -1 0 7864576 0 
+Q address:0x61fdf0
+Q pointing to:0x781730
+temp address:0x61fde8
+temp pointing to:0x781710
+NEW P:0x781730
+2 3 4 5 
