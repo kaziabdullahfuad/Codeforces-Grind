@@ -32,12 +32,20 @@ int main()
 
     while(t){
 
-    	if(abs(101)%2==abs(-99)%2){
-    		cout<<"YES"<<endl;
-    	}
-    	else{
-    		cout<<"NO"<<endl;
-    	}
+    	// if(abs(101)%2==abs(-99)%2){
+    	// 	cout<<"YES"<<endl;
+    	// }
+    	// else{
+    	// 	cout<<"NO"<<endl;
+    	// }
+
+    	string s="abcd";
+    	char x='l';
+    	string l="hello";
+    	cout<<s<<endl;
+    	s.insert(5,l);
+
+    	cout<<s<<endl;
     	// ll n;
     	// cin>>n;
     	// vector<ll> v1(n);
